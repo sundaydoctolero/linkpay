@@ -1,0 +1,179 @@
+.inside-body {
+    
+    height: 300px;
+    margin-top: 72px;
+    background-color: #81b7f9;
+    
+  
+    
+}
+
+.btn-group-vertical {
+    width: 250px;
+    padding-top: 30px;
+    
+    
+}
+
+.btn-group-vertical button {
+    
+    text-align: left;
+    padding-left: 30px;
+    background-color: #81b7f9;
+    border: 0;
+}
+
+.btn-group-vertical button:hover {
+    
+    text-align: left;
+    padding-left: 30px;
+    background-color: #727a87;
+    border: 0;
+}
+
+
+.sidebar {
+    
+    background-color: #81b7f9;
+    height: 850px;
+    border-bottom-right-radius: 300px;
+    padding-top: 30px;
+    
+}
+
+.sidebar input {
+    
+    width: 227px;
+    
+}
+
+
+.btn-secondary {
+    
+    text-align: left;
+    background-color: #81b7f9;
+    padding-left: 35px;
+    
+}
+
+.right-side {
+    
+    border-top-left-radius: 300px;
+/*    border: 1px solid black;*/
+    background-color: white;
+    height: 800px;
+}
+
+.navbar {
+    background-color: #81b7f9;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 50px;
+    border-top-left-radius: 120px;
+    border-top-right-radius: 150px;
+}
+
+body {
+    background: url('../images/log-in-background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.bg {
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+   
+   #logo {
+       
+       height: 150px;
+       width: 180px;
+       display: block;
+       margin: 0 auto;
+       
+        animation: anim4 4s linear infinite; }
+            @keyframes anim4 {
+            from {transform: rotate(0deg); }
+            to  {transform: rotateY(360deg); }
+   }
+   
+   .inside {
+       
+       padding-top: 120px;
+       
+   }
+   
+   .form {
+       margin: 0 auto;
+       margin-top: 20px;
+       color: #d3f6fa;
+   }
+   
+   .log {
+       
+       margin: 0 auto;
+       margin-top: 30px;
+       display: block;
+       width: 350px;
+       height: 50px;
+       padding-top: 9px;
+       color: #aeeefd;
+       text-align: center;
+       background-color: #047491;
+       border-top-left-radius: 30px;
+       border-top-right-radius: 30px;
+       
+   }
+   
+   .foot {
+       margin: 0 auto;
+       margin-top: 30px;
+       display: block;
+       width: 350px;
+       height: 20px;
+       padding-top: 9px;
+       color: #aeeefd;
+       text-align: center;
+       background-color: #047491;
+       border-bottom-left-radius: 30px;
+       border-bottom-right-radius: 30px;
+       
+   }
+   
+   .sub button {
+       background-color: #047491;
+       color: #ffffff;
+       width: 150px;
+       
+   }
+   
+   .sub button:hover {
+       background-color: #69dbf5;
+       color: #047491;
+       
+   }
+   
+   .sub a {
+       
+       color: #ffffff;
+       
+   }
+   
+    @media only screen and (max-width: 576px) {
+        .sub button {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .sub a {
+            display: block;
+            margin: 0 auto;
+        }
+
+
+
+    }
+
