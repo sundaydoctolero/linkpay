@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="icon" type="image/gif/png" href="images/mini%20icon.png">
-    <title>CCCDMSI - Payroll</title>
+    <title>Link|Pay v1.0</title>
 </head>
 
 <body>

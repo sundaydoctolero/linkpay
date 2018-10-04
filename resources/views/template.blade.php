@@ -1,7 +1,7 @@
-@extends('layouts.admin.dashboard')
+@extends('layouts.master')
 
 @section('title')
-    <h3>Dashboard</h3>
+    <h3>Template</h3>
 @endsection
 
 @section('template')

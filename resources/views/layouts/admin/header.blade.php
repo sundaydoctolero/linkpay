@@ -4,9 +4,37 @@
             <i class="fa fa-bars"></i>
         </button>
     </div>
+
+
     <div class="header-block header-block-search">
         @yield('title')
+        <!--
+        <form role="search">
+            <div class="input-container">
+                <i class="fa fa-search"></i>
+                <input type="search" placeholder="Search">
+                <div class="underline"></div>
+            </div>
+        </form>
+        -->
     </div>
+    <!--
+
+    <div class="header-block header-block-buttons">
+        <a href="https://github.com/modularcode/modular-admin-html" class="btn btn-sm header-btn">
+            <i class="fa fa-github-alt"></i>
+            <span>View on GitHub</span>
+        </a>
+        <a href="https://github.com/modularcode/modular-admin-html/stargazers" class="btn btn-sm header-btn">
+            <i class="fa fa-star"></i>
+            <span>Star Us</span>
+        </a>
+        <a href="https://github.com/modularcode/modular-admin-html/releases" class="btn btn-sm header-btn">
+            <i class="fa fa-cloud-download"></i>
+            <span>Download .zip</span>
+        </a>
+    </div>
+    -->
     <div class="header-block header-block-nav">
         <ul class="nav-profile">
             <li class="notifications new">
@@ -68,7 +96,7 @@
             <li class="profile dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&s=40')"> </div>
-                    <span class="name"> John Doe </span>
+                    <span class="name"> {{ auth()->user()->username }} </span>
                 </a>
                 <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                     <a class="dropdown-item" href="#">
