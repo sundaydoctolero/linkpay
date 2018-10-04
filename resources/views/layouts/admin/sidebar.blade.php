@@ -2,13 +2,18 @@
     <div class="sidebar-container">
         <div class="sidebar-header">
             <div class="brand">
+                <!--
                 <div class="logo">
                     <span class="l l1"></span>
                     <span class="l l2"></span>
                     <span class="l l3"></span>
                     <span class="l l4"></span>
                     <span class="l l5"></span>
-                </div> Link|Pay v1.0 </div>
+                </div>
+                -->
+             <img src="{{ asset('images/linkpay-logo.png') }}" height="50px" />
+             <span>Link|Pay v1.0</span>
+            </div>
         </div>
         <nav class="menu">
             <ul class="sidebar-menu metismenu" id="sidebar-menu">
@@ -76,7 +81,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li>
-                            <a href="items-list.html"> SSS Table </a>
+                            <a href="{{ url('/admin/setup/sss') }}"> SSS Table </a>
                         </li>
                         <li>
                             <a href="item-editor.html"> HDMF Table </a>

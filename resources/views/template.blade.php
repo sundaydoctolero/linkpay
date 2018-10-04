@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin.dashboard')
 
 @section('title')
     <h3>Template</h3>
