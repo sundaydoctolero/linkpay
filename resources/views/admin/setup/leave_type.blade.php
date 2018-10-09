@@ -1,7 +1,7 @@
 @extends('layouts.admin.dashboard')
 
 @section('title')
-    <h3>SSS Table <span>Setup</span></h3>
+    <h3>Leave Type Table <span>Setup</span></h3>
 @endsection
 
 @section('template')
@@ -23,44 +23,22 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
-                                    <tr>
-                                        <th rowspan="3">#</th>
-                                        <th colspan="2" class="text-center">Range of Compensation</th>
-                                        <th rowspan="3" class="text-center">Monthly Salary Credit</th>
-                                        <th colspan="7" class="text-center">Employer - Employee</th>
-                                        <th rowspan="3" class="text-center">Action</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center" rowspan="2">From</th>
-                                        <th class="text-center" rowspan="2">To</th>
-                                        <th colspan="3" class="text-center">Social Security</th>
-                                        <th class="text-center">EC</th>
-                                        <th colspan="3" class="text-center">Total Contribution</th>
-
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">ER</th>
-                                        <th class="text-center">EE</th>
-                                        <th class="text-center">Total</th>
-                                        <th class="text-center">ER</th>
-                                        <th class="text-center">ER</th>
-                                        <th class="text-center">EE</th>
-                                        <th class="text-center">Total</th>
-                                    </tr>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Type</th>
+                                            <th class="text-center">Code</th>
+                                            <th class="text-center">%</th>
+                                            <th class="text-center">Remarks</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(sss,index) in get_sss">
-                                        <td class="text-center" v-text="index + 1"></td>
-                                        <td class="text-center" v-text="sss.salary_from"></td>
-                                        <td class="text-center" v-text="sss.salary_to"></td>
-                                        <td v-text="sss.salary_credit"></td>
-                                        <td v-text="sss.employer_share"></td>
-                                        <td v-text="sss.employee_share"></td>
-                                        <td v-text="sss.sss_total"></td>
-                                        <td v-text="sss.employer_ec_share"></td>
-                                        <td v-text="sss.employer_share_total"></td>
-                                        <td v-text="sss.employee_share_total"></td>
-                                        <td v-text="sss.total_contribution"></td>
+                                    <tr v-for="(leave_type,index) in get_leave_type">
+                                        <td>#</td>
+                                        <td>#</td>
+                                        <td>#</td>
+                                        <td>#</td>
+                                        <td>#</td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-pill-left btn-info" data-toggle="modal" data-target="#modal-form">Modify</button>
                                             <button type="button" class="btn btn-pill-right btn-danger" data-toggle="modal" data-target="#confirm-modal">Delete</button>
@@ -88,7 +66,7 @@
                         <span class="sr-only">Close</span>
                     </button>
                 </div>
-                <form method="post" action="/admin/setup/sss" @submit.prevent="onSubmit">
+                <form method="post" action="/admin/setup/pagibig" @submit.prevent="onSubmit">
                     <div class="modal-body modal-tab-container">
                         <div class="card card-block">
                             <div class="title-block">
@@ -97,36 +75,22 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="control-label">Salary From</label>
-                                        <input type="text" class="form-control" v-model="form.salary_from"> </div>
+                                        <label class="control-label">Type</label>
+                                        <input type="text" class="form-control" v-model="form.leave_type"> </div>
                                     <div class="form-group">
-                                        <label class="control-label">Salary To</label>
-                                        <input type="text" class="form-control" v-model="form.salary_to"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Salary Credit</label>
-                                        <input type="text" class="form-control" v-model="form.salary_credit"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employer Share</label>
-                                        <input type="text" class="form-control" v-model="form.employer_share"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employee Share</label>
-                                        <input type="text" class="form-control" v-model="form.employee_share"> </div>
+                                        <label class="control-label">Code</label>
+                                        <input type="text" class="form-control" v-model="form.leave_code"> </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label class="control-label">Employer EC Share</label>
-                                        <input type="text" class="form-control" v-model="form.employer_ec_share"> </div>
+                                        <label class="control-label">%</label>
+                                        <input type="text" class="form-control" v-model="form.leave_percentage"> </div>
                                     <div class="form-group">
-                                        <label class="control-label">Employer Share Total</label>
-                                        <input type="text" class="form-control" v-model="form.employer_share_total"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employee Share Total</label>
-                                        <input type="text" class="form-control" v-model="form.employee_share_total"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Total Contribution</label>
-                                        <input type="text" class="form-control" v-model="form.total_contribution"> </div>
+                                        <label class="control-label">Remarks</label>
+                                        <input type="text" class="form-control" v-model="form.remarks"> </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -230,11 +194,11 @@
         app = new Vue({
            el: '#root',
            data: {
-               get_sss: [],
+               get_leave_type: [],
            },
            mounted(){
-            axios.get('/admin/setup/get_sss')
-                    .then(response => this.get_sss = response.data);
+            axios.get('/admin/setup/get_leave_type')
+                    .then(response => this.get_leave_type = response.data);
            }
         });
 
@@ -242,16 +206,10 @@
             el: '#modal-form',
             data: {
                 form: new Form({
-                    salary_from: 0,
-                    salary_to: 0,
-                    salary_credit: 0,
-                    employer_share: 0,
-                    employee_share: 0,
-                    sss_total: 0,
-                    employer_ec_share: 0,
-                    employer_share_total: 0,
-                    employee_share_total:0,
-                    total_contribution: 0
+                    leave_type: 0,
+                    leave_code: 0,
+                    leave_percentage: 0,
+
                 })
             },
             methods: {

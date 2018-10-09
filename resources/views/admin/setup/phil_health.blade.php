@@ -1,7 +1,7 @@
 @extends('layouts.admin.dashboard')
 
 @section('title')
-    <h3>SSS Table <span>Setup</span></h3>
+    <h3>PHIC Table <span>Setup</span></h3>
 @endsection
 
 @section('template')
@@ -24,43 +24,29 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th rowspan="3">#</th>
-                                        <th colspan="2" class="text-center">Range of Compensation</th>
-                                        <th rowspan="3" class="text-center">Monthly Salary Credit</th>
-                                        <th colspan="7" class="text-center">Employer - Employee</th>
-                                        <th rowspan="3" class="text-center">Action</th>
+                                        <th rowspan="2" class="text-center">#</th>
+                                        <th colspan="2" class="text-center">Monthly Salary</th>
+                                        <th rowspan="2" class="text-center">Total Amount</th>
+                                        <th rowspan="2" class="text-center">%</th>
+                                        <th colspan="4" class="text-center">Shares</th>
+                                        <th rowspan="2" class="text-center">Action</th>
                                     </tr>
                                     <tr>
-                                        <th class="text-center" rowspan="2">From</th>
-                                        <th class="text-center" rowspan="2">To</th>
-                                        <th colspan="3" class="text-center">Social Security</th>
-                                        <th class="text-center">EC</th>
-                                        <th colspan="3" class="text-center">Total Contribution</th>
-
-                                    </tr>
-                                    <tr>
-                                        <th class="text-center">ER</th>
-                                        <th class="text-center">EE</th>
-                                        <th class="text-center">Total</th>
-                                        <th class="text-center">ER</th>
-                                        <th class="text-center">ER</th>
-                                        <th class="text-center">EE</th>
-                                        <th class="text-center">Total</th>
+                                        <th class="text-center" rowspan="1">From</th>
+                                        <th class="text-center" rowspan="1">To</th>
+                                        <th colspan="2" class="text-center">Employee</th>
+                                        <th colspan="2" class="text-center">Employer</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(sss,index) in get_sss">
+                                    <tr v-for="(phil_health,index) in get_phil_health">
                                         <td class="text-center" v-text="index + 1"></td>
-                                        <td class="text-center" v-text="sss.salary_from"></td>
-                                        <td class="text-center" v-text="sss.salary_to"></td>
-                                        <td v-text="sss.salary_credit"></td>
-                                        <td v-text="sss.employer_share"></td>
-                                        <td v-text="sss.employee_share"></td>
-                                        <td v-text="sss.sss_total"></td>
-                                        <td v-text="sss.employer_ec_share"></td>
-                                        <td v-text="sss.employer_share_total"></td>
-                                        <td v-text="sss.employee_share_total"></td>
-                                        <td v-text="sss.total_contribution"></td>
+                                        <td class="text-center" v-text="phil_health.monthly_basic_salary_from"></td>
+                                        <td class="text-center" v-text="phil_health.monthly_basic_salary_to"></td>
+                                        <td class="text-center" v-text="phil_health.total_amount"></td>
+                                        <td class="text-center" v-text="phil_health.percentage"></td>
+                                        <td v-text="phil_health.employer_share"></td>
+                                        <td v-text="phil_health.employee_share"></td>
                                         <td class="text-center">
                                             <button type="button" class="btn btn-pill-left btn-info" data-toggle="modal" data-target="#modal-form">Modify</button>
                                             <button type="button" class="btn btn-pill-right btn-danger" data-toggle="modal" data-target="#confirm-modal">Delete</button>
@@ -88,46 +74,42 @@
                         <span class="sr-only">Close</span>
                     </button>
                 </div>
-                <form method="post" action="/admin/setup/sss" @submit.prevent="onSubmit">
+                <form method="post" action="/admin/setup/pagibig" @submit.prevent="onSubmit">
                     <div class="modal-body modal-tab-container">
                         <div class="card card-block">
                             <div class="title-block">
                                 <h3 class="title"></h3>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="control-label">Salary From</label>
-                                        <input type="text" class="form-control" v-model="form.salary_from"> </div>
+                                        <input type="text" class="form-control" v-model="form.salary_from">
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label">Salary To</label>
-                                        <input type="text" class="form-control" v-model="form.salary_to"> </div>
+                                        <input type="text" class="form-control" v-model="form.salary_to">
+                                    </div>
                                     <div class="form-group">
-                                        <label class="control-label">Salary Credit</label>
-                                        <input type="text" class="form-control" v-model="form.salary_credit"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employer Share</label>
-                                        <input type="text" class="form-control" v-model="form.employer_share"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employee Share</label>
-                                        <input type="text" class="form-control" v-model="form.employee_share"> </div>
+                                        <label class="control-label">Total Amount</label>
+                                        <input type="text" class="form-control" v-model="form.total_amount">
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">%</label>
+                                    <input type="text" class="form-control" v-model="form.percentage">
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="control-label">Employer EC Share</label>
-                                        <input type="text" class="form-control" v-model="form.employer_ec_share"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employer Share Total</label>
-                                        <input type="text" class="form-control" v-model="form.employer_share_total"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Employee Share Total</label>
-                                        <input type="text" class="form-control" v-model="form.employee_share_total"> </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Total Contribution</label>
-                                        <input type="text" class="form-control" v-model="form.total_contribution"> </div>
+                                <div class="form-group">
+                                    <label class="control-label">Employee Share</label>
+                                    <input type="text" class="form-control" v-model="form.employee_share">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Employer Share</label>
+                                    <input type="text" class="form-control" v-model="form.employer_share">
                                 </div>
                             </div>
-                    </div>
+                        </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -230,11 +212,11 @@
         app = new Vue({
            el: '#root',
            data: {
-               get_sss: [],
+               get_pagibig: [],
            },
            mounted(){
-            axios.get('/admin/setup/get_sss')
-                    .then(response => this.get_sss = response.data);
+            axios.get('/admin/setup/get_phil_health')
+                    .then(response => this.get_phil_health = response.data);
            }
         });
 
@@ -244,14 +226,10 @@
                 form: new Form({
                     salary_from: 0,
                     salary_to: 0,
-                    salary_credit: 0,
+                    total_amount: 0,
+                    percentage: 0,
                     employer_share: 0,
                     employee_share: 0,
-                    sss_total: 0,
-                    employer_ec_share: 0,
-                    employer_share_total: 0,
-                    employee_share_total:0,
-                    total_contribution: 0
                 })
             },
             methods: {

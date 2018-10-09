@@ -53,7 +53,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li>
-                            <a href="items-list.html"> Payroll </a>
+                            <a href="{{ url('/admin/payroll') }}"> Payroll </a>
                         </li>
                         <li>
                             <a href="item-editor.html"> Payroll Period </a>
@@ -70,7 +70,7 @@
                     </a>
                     <ul class="sidebar-nav">
                         <li>
-                            <a href="items-list.html"> Employee Information </a>
+                            <a href="/admin/employee"> Employee Information </a>
                         </li>
                     </ul>
                 </li>
@@ -84,16 +84,19 @@
                             <a href="{{ url('/admin/setup/sss') }}"> SSS Table </a>
                         </li>
                         <li>
-                            <a href="item-editor.html"> HDMF Table </a>
+                            <a href="{{ url('/admin/setup/pagibig') }}"> HDMF Table </a>
                         </li>
                         <li>
                             <a href="item-editor.html"> Witholding Tax Table </a>
                         </li>
                         <li>
-                            <a href="item-editor.html"> PHIC Table </a>
+                            <a href="{{ url('/admin/setup/phil_health') }}"> PHIC Table </a>
                         </li>
                         <li>
                             <a href="items-list.html"> Holidays </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/setup/leave') }}"> Leave Types </a>
                         </li>
                     </ul>
                 </li>
